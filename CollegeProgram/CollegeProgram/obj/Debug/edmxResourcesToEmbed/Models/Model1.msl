@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="IS417ModelStoreContainer" CdmEntityContainer="IS417Entities1">
+    <EntitySetMapping Name="Advisors">
+      <EntityTypeMapping TypeName="IS417Model.Advisor">
+        <MappingFragment StoreEntitySet="Advisor">
+          <ScalarProperty Name="AdvisorID" ColumnName="AdvisorID" />
+          <ScalarProperty Name="AdvisorFirstName" ColumnName="AdvisorFirstName" />
+          <ScalarProperty Name="AdvisorLastName" ColumnName="AdvisorLastName" />
+          <ScalarProperty Name="AdvisorTitle" ColumnName="AdvisorTitle" />
+          <ScalarProperty Name="AdvisorLocation" ColumnName="AdvisorLocation" />
+          <ScalarProperty Name="AdvisorEmail" ColumnName="AdvisorEmail" />
+          <ScalarProperty Name="AdvisorAddress" ColumnName="AdvisorAddress" />
+          <ScalarProperty Name="AdvisorCity" ColumnName="AdvisorCity" />
+          <ScalarProperty Name="AdvisorState" ColumnName="AdvisorState" />
+          <ScalarProperty Name="AdvisorZip" ColumnName="AdvisorZip" />
+          <ScalarProperty Name="AdvisorOfficePhone" ColumnName="AdvisorOfficePhone" />
+          <ScalarProperty Name="AdvisorMobilePhone" ColumnName="AdvisorMobilePhone" />
+          <ScalarProperty Name="AdvisorLevel" ColumnName="AdvisorLevel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Appointments">
+      <EntityTypeMapping TypeName="IS417Model.Appointment">
+        <MappingFragment StoreEntitySet="Appointment">
+          <ScalarProperty Name="AppointmentID" ColumnName="AppointmentID" />
+          <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+          <ScalarProperty Name="AdvisorID" ColumnName="AdvisorID" />
+          <ScalarProperty Name="ApointmentDate" ColumnName="ApointmentDate" />
+          <ScalarProperty Name="ApointmentTime" ColumnName="ApointmentTime" />
+          <ScalarProperty Name="AppointmentType" ColumnName="AppointmentType" />
+          <ScalarProperty Name="AppointmentLocation" ColumnName="AppointmentLocation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Buildings">
+      <EntityTypeMapping TypeName="IS417Model.Building">
+        <MappingFragment StoreEntitySet="Building">
+          <ScalarProperty Name="BuildingID" ColumnName="BuildingID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CareerFairs">
+      <EntityTypeMapping TypeName="IS417Model.CareerFair">
+        <MappingFragment StoreEntitySet="CareerFair">
+          <ScalarProperty Name="CareerFairID" ColumnName="CareerFairID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LocationName" ColumnName="LocationName" />
+          <ScalarProperty Name="StreetAddress" ColumnName="StreetAddress" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="Sponsor" ColumnName="Sponsor" />
+          <ScalarProperty Name="AdvisorID" ColumnName="AdvisorID" />
+          <ScalarProperty Name="RecruiterID" ColumnName="RecruiterID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CareerPlans">
+      <EntityTypeMapping TypeName="IS417Model.CareerPlan">
+        <MappingFragment StoreEntitySet="CareerPlan">
+          <ScalarProperty Name="CareerPlanID" ColumnName="CareerPlanID" />
+          <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+          <ScalarProperty Name="AdvisorID" ColumnName="AdvisorID" />
+          <ScalarProperty Name="RecruiterID" ColumnName="RecruiterID" />
+          <ScalarProperty Name="Resume" ColumnName="Resume" />
+          <ScalarProperty Name="AdvisorCareerForecast" ColumnName="AdvisorCareerForecast" />
+          <ScalarProperty Name="RecruiterCareerForecast" ColumnName="RecruiterCareerForecast" />
+          <ScalarProperty Name="StudentCareerGoals" ColumnName="StudentCareerGoals" />
+          <ScalarProperty Name="JobLocationState" ColumnName="JobLocationState" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Colleges">
+      <EntityTypeMapping TypeName="IS417Model.College">
+        <MappingFragment StoreEntitySet="College">
+          <ScalarProperty Name="CollegeID" ColumnName="CollegeID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Companies">
+      <EntityTypeMapping TypeName="IS417Model.Company">
+        <MappingFragment StoreEntitySet="Company">
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Courses">
+      <EntityTypeMapping TypeName="IS417Model.Course">
+        <MappingFragment StoreEntitySet="Course">
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Credits" ColumnName="Credits" />
+          <ScalarProperty Name="ProgramID" ColumnName="ProgramID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Enrollments">
+      <EntityTypeMapping TypeName="IS417Model.Enrollment">
+        <MappingFragment StoreEntitySet="Enrollment">
+          <ScalarProperty Name="EnrollmentID" ColumnName="EnrollmentID" />
+          <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+          <ScalarProperty Name="SectionID" ColumnName="SectionID" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="GradePoint" ColumnName="GradePoint" />
+          <ScalarProperty Name="Credits" ColumnName="Credits" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Feedbacks">
+      <EntityTypeMapping TypeName="IS417Model.Feedback">
+        <MappingFragment StoreEntitySet="Feedback">
+          <ScalarProperty Name="FeedbackID" ColumnName="FeedbackID" />
+          <ScalarProperty Name="FeedbackType" ColumnName="FeedbackType" />
+          <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+          <ScalarProperty Name="AdvisorID" ColumnName="AdvisorID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Instructors">
+      <EntityTypeMapping TypeName="IS417Model.Instructor">
+        <MappingFragment StoreEntitySet="Instructor">
+          <ScalarProperty Name="InstructorID" ColumnName="InstructorID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MI" ColumnName="MI" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Jobs">
+      <EntityTypeMapping TypeName="IS417Model.Job">
+        <MappingFragment StoreEntitySet="Job">
+          <ScalarProperty Name="JobId" ColumnName="JobId" />
+          <ScalarProperty Name="JobLocation" ColumnName="JobLocation" />
+          <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+          <ScalarProperty Name="JobDescription" ColumnName="JobDescription" />
+          <ScalarProperty Name="JobPostingDate" ColumnName="JobPostingDate" />
+          <ScalarProperty Name="JobDegreeRequirements" ColumnName="JobDegreeRequirements" />
+          <ScalarProperty Name="SocialMediaProfile" ColumnName="SocialMediaProfile" />
+          <ScalarProperty Name="AdvisorID" ColumnName="AdvisorID" />
+          <ScalarProperty Name="RecruiterID" ColumnName="RecruiterID" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="PostingDate" ColumnName="PostingDate" />
+          <ScalarProperty Name="DegreeField" ColumnName="DegreeField" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Programs">
+      <EntityTypeMapping TypeName="IS417Model.Program">
+        <MappingFragment StoreEntitySet="Program">
+          <ScalarProperty Name="ProgramID" ColumnName="ProgramID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CollegeID" ColumnName="CollegeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Recruiters">
+      <EntityTypeMapping TypeName="IS417Model.Recruiter">
+        <MappingFragment StoreEntitySet="Recruiter">
+          <ScalarProperty Name="RecruiterID" ColumnName="RecruiterID" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rooms">
+      <EntityTypeMapping TypeName="IS417Model.Room">
+        <MappingFragment StoreEntitySet="Room">
+          <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+          <ScalarProperty Name="Lab" ColumnName="Lab" />
+          <ScalarProperty Name="LabType" ColumnName="LabType" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="BuidingID" ColumnName="BuidingID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sections">
+      <EntityTypeMapping TypeName="IS417Model.Section">
+        <MappingFragment StoreEntitySet="Section">
+          <ScalarProperty Name="SectionID" ColumnName="SectionID" />
+          <ScalarProperty Name="Day" ColumnName="Day" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="TermID" ColumnName="TermID" />
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+          <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+          <ScalarProperty Name="InstructorID" ColumnName="InstructorID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="IS417Model.Student">
+        <MappingFragment StoreEntitySet="Student">
+          <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MI" ColumnName="MI" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Suffix" ColumnName="Suffix" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="MajorID" ColumnName="MajorID" />
+          <ScalarProperty Name="MinorID" ColumnName="MinorID" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="EnrollmentStatus" ColumnName="EnrollmentStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentAddresses">
+      <EntityTypeMapping TypeName="IS417Model.StudentAddress">
+        <MappingFragment StoreEntitySet="StudentAddress">
+          <ScalarProperty Name="StudentAddressID" ColumnName="StudentAddressID" />
+          <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+          <ScalarProperty Name="StreetAddress1" ColumnName="StreetAddress1" />
+          <ScalarProperty Name="StreetAddress2" ColumnName="StreetAddress2" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="Primary" ColumnName="Primary" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentAvailabilities">
+      <EntityTypeMapping TypeName="IS417Model.StudentAvailability">
+        <MappingFragment StoreEntitySet="StudentAvailability">
+          <ScalarProperty Name="AvailabilityID" ColumnName="AvailabilityID" />
+          <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+          <ScalarProperty Name="BeginTime" ColumnName="BeginTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="Sun" ColumnName="Sun" />
+          <ScalarProperty Name="Mon" ColumnName="Mon" />
+          <ScalarProperty Name="Tue" ColumnName="Tue" />
+          <ScalarProperty Name="Wed" ColumnName="Wed" />
+          <ScalarProperty Name="Thu" ColumnName="Thu" />
+          <ScalarProperty Name="Fri" ColumnName="Fri" />
+          <ScalarProperty Name="Sat" ColumnName="Sat" />
+          <ScalarProperty Name="BeginDate" ColumnName="BeginDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Terms">
+      <EntityTypeMapping TypeName="IS417Model.Term">
+        <MappingFragment StoreEntitySet="Term">
+          <ScalarProperty Name="TermID" ColumnName="TermID" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

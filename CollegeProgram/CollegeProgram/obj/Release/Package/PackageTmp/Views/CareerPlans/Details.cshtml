@@ -1,0 +1,82 @@
+﻿@model CollegeProgram.Models.CareerPlan
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CareerPlan</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RecruiterID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecruiterID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Resume)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Resume)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdvisorCareerForecast)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdvisorCareerForecast)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RecruiterCareerForecast)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecruiterCareerForecast)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentCareerGoals)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentCareerGoals)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JobLocationState)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobLocationState)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Advisor.AdvisorFirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Advisor.AdvisorFirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.FirstName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CareerPlanID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,88 @@
+﻿@model CollegeProgram.Models.CareerPlan
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>CareerPlan</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RecruiterID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecruiterID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Resume)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Resume)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdvisorCareerForecast)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdvisorCareerForecast)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RecruiterCareerForecast)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecruiterCareerForecast)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentCareerGoals)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentCareerGoals)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JobLocationState)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobLocationState)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Advisor.AdvisorFirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Advisor.AdvisorFirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.FirstName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

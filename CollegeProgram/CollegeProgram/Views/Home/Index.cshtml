@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>College Program System Administration</h1>
+    <p class="lead">
+        Welcome to the system administration portal for the College Program System.
+        Please use the links in the sections below to view, add, delete or update data in the system.
+    </p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Programs</h2>
+        <p>You can easily add, update or delete Colleges, Majors, Minors and classes from the system here.</p>
+        <p>
+            @Html.ActionLink("College List ", "Index", "Colleges", null, new { @class = "btn btn-default" })
+            @Html.ActionLink("Major/Minor List ", "Index", "Programs", null, new { @class = "btn btn-default" })
+            @Html.ActionLink("Course List ", "Index", "Courses", null, new { @class = "btn btn-default" })
+            @Html.ActionLink("Term List ", "Index", "Terms", null, new { @class = "btn btn-default" })
+            @Html.ActionLink("Instructor List ", "Index", "Instructors", null, new { @class = "btn btn-default" })
+            @Html.ActionLink("Section List ", "Index", "Sections", null, new { @class = "btn btn-default" })
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>Locations</h2>
+        <p>You can easily add, update or delete Buldings and Rooms from the system here.</p>
+        <p>
+            @Html.ActionLink("Buildings List ", "Index", "Buildings", null, new { @class = "btn btn-default" })
+            @Html.ActionLink("Rooms List ", "Index", "Rooms", null, new { @class = "btn btn-default" })
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>Advising</h2>
+        <p>You can easily add, update or delete Advisors, Appointments from the system here.
+        <p>
+            @Html.ActionLink("Advisor List ", "Index", "Advisors", null, new { @class = "btn btn-default" })
+            @Html.ActionLink("Apointment List ", "Index", "Appointments", null, new { @class = "btn btn-default" })
+            @Html.ActionLink("Careeer Plan List ", "Index", "CareerPlans", null, new { @class = "btn btn-default" })
+            @Html.ActionLink("Feedback List ", "Index", "Feedbacks", null, new { @class = "btn btn-default" })
+    </p>
+    </div>
+    <div class="col-md-4">
+        <h2>Recruiters</h2>
+        <p>You can easily add, update or delete Recruiters, Career Fairs and Jobs from the system here.
+        <p>
+            @Html.ActionLink("Recruiter List ", "Index", "Recruiters", null, new { @class = "btn btn-default" })
+            @Html.ActionLink("Career Fairs List ", "Index", "CareerFairs", null, new { @class = "btn btn-default" })
+            @Html.ActionLink("Companies List ", "Index", "Companies", null, new { @class = "btn btn-default" })
+            @Html.ActionLink("Jobs List ", "Index", "Jobs", null, new { @class = "btn btn-default" })
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>Students</h2>
+        <p>You can easily add, update or delete Students, Student Addresses and Class Schedules here.</p>
+        <p>
+            @Html.ActionLink("Student List ", "Index", "Students", null, new { @class = "btn btn-default" })
+            @Html.ActionLink("Student Address List ", "Index", "StudentAddresses", null, new { @class = "btn btn-default" })
+            @Html.ActionLink("Student Availability List ", "Index", "StudentAvailabilities", null, new { @class = "btn btn-default" })
+            @Html.ActionLink("Student Enrollment List ", "Index", "Enrollments", null, new { @class = "btn btn-default" })
+        </p>
+    </div>
+</div>
+
+<div>
+    
+</div>

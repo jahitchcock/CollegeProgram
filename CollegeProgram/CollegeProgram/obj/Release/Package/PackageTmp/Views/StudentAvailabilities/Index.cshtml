@@ -1,0 +1,99 @@
+﻿@model IEnumerable<CollegeProgram.Models.StudentAvailability>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BeginTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sun)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Wed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Thu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fri)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BeginDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student.FirstName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BeginTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sun)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Wed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Thu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fri)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BeginDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.FirstName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.AvailabilityID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.AvailabilityID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.AvailabilityID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="5790e9ce-b1a0-4dd0-94d9-2f25d4850fbb"
+  name="CollegeProgram"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="fc3a1db0-30bc-4a42-8b78-461b55cd927c"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DCollegeProgram"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="6c6d58c4-bcce-4f24-8ae5-20968db4c306"
+        LastKnownName="Controllers"
+        LastKnownLocation="Package1_1732.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="fab40fa4-2ebe-4033-a7db-1a46c220bd02"
+        LastKnownName="Models"
+        LastKnownLocation="Package5_1732.uml" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

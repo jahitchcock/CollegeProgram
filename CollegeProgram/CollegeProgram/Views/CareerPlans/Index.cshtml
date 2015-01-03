@@ -1,0 +1,75 @@
+﻿@model IEnumerable<CollegeProgram.Models.CareerPlan>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RecruiterID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Resume)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdvisorCareerForecast)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RecruiterCareerForecast)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentCareerGoals)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JobLocationState)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Advisor.AdvisorFirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student.FirstName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecruiterID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Resume)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdvisorCareerForecast)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecruiterCareerForecast)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudentCareerGoals)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JobLocationState)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Advisor.AdvisorFirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.FirstName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CareerPlanID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CareerPlanID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CareerPlanID })
+        </td>
+    </tr>
+}
+
+</table>

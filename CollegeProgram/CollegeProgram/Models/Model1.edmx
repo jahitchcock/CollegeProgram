@@ -1,0 +1,1688 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="IS417Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Advisor">
+          <Key>
+            <PropertyRef Name="AdvisorID" />
+          </Key>
+          <Property Name="AdvisorID" Type="bigint" Nullable="false" />
+          <Property Name="AdvisorFirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="AdvisorLastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="AdvisorTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="AdvisorLocation" Type="nvarchar" MaxLength="50" />
+          <Property Name="AdvisorEmail" Type="nvarchar" MaxLength="50" />
+          <Property Name="AdvisorAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="AdvisorCity" Type="nvarchar" MaxLength="50" />
+          <Property Name="AdvisorState" Type="nchar" MaxLength="2" />
+          <Property Name="AdvisorZip" Type="nvarchar" MaxLength="10" />
+          <Property Name="AdvisorOfficePhone" Type="nvarchar" MaxLength="20" />
+          <Property Name="AdvisorMobilePhone" Type="nvarchar" MaxLength="20" />
+          <Property Name="AdvisorLevel" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Appointment">
+          <Key>
+            <PropertyRef Name="AppointmentID" />
+          </Key>
+          <Property Name="AppointmentID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentID" Type="bigint" Nullable="false" />
+          <Property Name="AdvisorID" Type="bigint" Nullable="false" />
+          <Property Name="ApointmentDate" Type="date" Nullable="false" />
+          <Property Name="ApointmentTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="AppointmentType" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AppointmentLocation" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Building">
+          <Key>
+            <PropertyRef Name="BuildingID" />
+          </Key>
+          <Property Name="BuildingID" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Location" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CareerFair">
+          <Key>
+            <PropertyRef Name="CareerFairID" />
+          </Key>
+          <Property Name="CareerFairID" Type="bigint" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LocationName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="StreetAddress" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="State" Type="nchar" MaxLength="2" Nullable="false" />
+          <Property Name="Zip" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Sponsor" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AdvisorID" Type="bigint" Nullable="false" />
+          <Property Name="RecruiterID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CareerPlan">
+          <Key>
+            <PropertyRef Name="CareerPlanID" />
+          </Key>
+          <Property Name="CareerPlanID" Type="bigint" Nullable="false" />
+          <Property Name="StudentID" Type="bigint" Nullable="false" />
+          <Property Name="AdvisorID" Type="bigint" Nullable="false" />
+          <Property Name="RecruiterID" Type="bigint" Nullable="false" />
+          <Property Name="Resume" Type="binary" MaxLength="8000" />
+          <Property Name="AdvisorCareerForecast" Type="nvarchar" MaxLength="500" />
+          <Property Name="RecruiterCareerForecast" Type="nvarchar" MaxLength="500" />
+          <Property Name="StudentCareerGoals" Type="nvarchar" MaxLength="500" />
+          <Property Name="JobLocationState" Type="nchar" MaxLength="2" />
+        </EntityType>
+        <EntityType Name="College">
+          <Key>
+            <PropertyRef Name="CollegeID" />
+          </Key>
+          <Property Name="CollegeID" Type="bigint" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="CompanyID" />
+          </Key>
+          <Property Name="CompanyID" Type="bigint" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="CourseID" />
+          </Key>
+          <Property Name="CourseID" Type="bigint" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+          <Property Name="Credits" Type="decimal" Precision="3" Scale="2" />
+          <Property Name="ProgramID" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Enrollment">
+          <Key>
+            <PropertyRef Name="EnrollmentID" />
+          </Key>
+          <Property Name="EnrollmentID" Type="bigint" Nullable="false" />
+          <Property Name="StudentID" Type="bigint" Nullable="false" />
+          <Property Name="SectionID" Type="bigint" Nullable="false" />
+          <Property Name="Grade" Type="nchar" MaxLength="2" />
+          <Property Name="GradePoint" Type="decimal" Precision="3" Scale="2" />
+          <Property Name="Credits" Type="decimal" Precision="3" Scale="2" />
+        </EntityType>
+        <EntityType Name="Feedback">
+          <Key>
+            <PropertyRef Name="FeedbackID" />
+          </Key>
+          <Property Name="FeedbackID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FeedbackType" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="StudentID" Type="bigint" Nullable="false" />
+          <Property Name="AdvisorID" Type="bigint" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Instructor">
+          <Key>
+            <PropertyRef Name="InstructorID" />
+          </Key>
+          <Property Name="InstructorID" Type="bigint" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MI" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="RoomID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Job">
+          <Key>
+            <PropertyRef Name="JobId" />
+          </Key>
+          <Property Name="JobId" Type="bigint" Nullable="false" />
+          <Property Name="JobLocation" Type="nvarchar" MaxLength="50" />
+          <Property Name="JobTitle" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="JobDescription" Type="nvarchar" MaxLength="500" />
+          <Property Name="JobPostingDate" Type="date" Nullable="false" />
+          <Property Name="JobDegreeRequirements" Type="nvarchar" MaxLength="50" />
+          <Property Name="SocialMediaProfile" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AdvisorID" Type="bigint" Nullable="false" />
+          <Property Name="RecruiterID" Type="bigint" Nullable="false" />
+          <Property Name="CompanyID" Type="bigint" Nullable="false" />
+          <Property Name="PostingDate" Type="date" Nullable="false" />
+          <Property Name="DegreeField" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Program">
+          <Key>
+            <PropertyRef Name="ProgramID" />
+          </Key>
+          <Property Name="ProgramID" Type="bigint" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CollegeID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Recruiter">
+          <Key>
+            <PropertyRef Name="RecruiterID" />
+          </Key>
+          <Property Name="RecruiterID" Type="bigint" Nullable="false" />
+          <Property Name="Firstname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Room">
+          <Key>
+            <PropertyRef Name="RoomID" />
+          </Key>
+          <Property Name="RoomID" Type="bigint" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="Capacity" Type="smallint" />
+          <Property Name="Lab" Type="bit" />
+          <Property Name="LabType" Type="nvarchar" MaxLength="50" />
+          <Property Name="Notes" Type="nvarchar" MaxLength="500" />
+          <Property Name="BuidingID" Type="int" />
+        </EntityType>
+        <EntityType Name="Section">
+          <Key>
+            <PropertyRef Name="SectionID" />
+          </Key>
+          <Property Name="SectionID" Type="bigint" Nullable="false" />
+          <Property Name="Day" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="StartTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="EndTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="StartDate" Type="date" Nullable="false" />
+          <Property Name="EndDate" Type="date" Nullable="false" />
+          <Property Name="TermID" Type="int" Nullable="false" />
+          <Property Name="CourseID" Type="bigint" Nullable="false" />
+          <Property Name="RoomID" Type="bigint" Nullable="false" />
+          <Property Name="InstructorID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="StudentID" />
+          </Key>
+          <Property Name="StudentID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MI" Type="nchar" MaxLength="1" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Suffix" Type="nchar" MaxLength="4" Nullable="false" />
+          <Property Name="DOB" Type="date" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="MajorID" Type="bigint" />
+          <Property Name="MinorID" Type="bigint" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="EnrollmentStatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StudentAddress">
+          <Key>
+            <PropertyRef Name="StudentAddressID" />
+          </Key>
+          <Property Name="StudentAddressID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentID" Type="bigint" Nullable="false" />
+          <Property Name="StreetAddress1" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="StreetAddress2" Type="nvarchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="State" Type="nchar" MaxLength="2" Nullable="false" />
+          <Property Name="Zip" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Primary" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StudentAvailability">
+          <Key>
+            <PropertyRef Name="AvailabilityID" />
+          </Key>
+          <Property Name="AvailabilityID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentID" Type="bigint" Nullable="false" />
+          <Property Name="BeginTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="EndTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="Sun" Type="bit" Nullable="false" />
+          <Property Name="Mon" Type="bit" Nullable="false" />
+          <Property Name="Tue" Type="bit" Nullable="false" />
+          <Property Name="Wed" Type="bit" Nullable="false" />
+          <Property Name="Thu" Type="bit" Nullable="false" />
+          <Property Name="Fri" Type="bit" Nullable="false" />
+          <Property Name="Sat" Type="bit" Nullable="false" />
+          <Property Name="BeginDate" Type="date" Nullable="false" />
+          <Property Name="EndDate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Term">
+          <Key>
+            <PropertyRef Name="TermID" />
+          </Key>
+          <Property Name="TermID" Type="int" Nullable="false" />
+          <Property Name="Year" Type="nchar" MaxLength="4" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Appointment_Advisor">
+          <End Role="Advisor" Type="Self.Advisor" Multiplicity="1" />
+          <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Advisor">
+              <PropertyRef Name="AdvisorID" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="AdvisorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Appointment_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CareerFair_Advisor">
+          <End Role="Advisor" Type="Self.Advisor" Multiplicity="1" />
+          <End Role="CareerFair" Type="Self.CareerFair" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Advisor">
+              <PropertyRef Name="AdvisorID" />
+            </Principal>
+            <Dependent Role="CareerFair">
+              <PropertyRef Name="AdvisorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CareerFair_Recruiter">
+          <End Role="Recruiter" Type="Self.Recruiter" Multiplicity="1" />
+          <End Role="CareerFair" Type="Self.CareerFair" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recruiter">
+              <PropertyRef Name="RecruiterID" />
+            </Principal>
+            <Dependent Role="CareerFair">
+              <PropertyRef Name="RecruiterID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CareerPlan_Advisor">
+          <End Role="Advisor" Type="Self.Advisor" Multiplicity="1" />
+          <End Role="CareerPlan" Type="Self.CareerPlan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Advisor">
+              <PropertyRef Name="AdvisorID" />
+            </Principal>
+            <Dependent Role="CareerPlan">
+              <PropertyRef Name="AdvisorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CareerPlan_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="CareerPlan" Type="Self.CareerPlan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="CareerPlan">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Course_Program">
+          <End Role="Program" Type="Self.Program" Multiplicity="0..1" />
+          <End Role="Course" Type="Self.Course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Program">
+              <PropertyRef Name="ProgramID" />
+            </Principal>
+            <Dependent Role="Course">
+              <PropertyRef Name="ProgramID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Enrollment_Section">
+          <End Role="Section" Type="Self.Section" Multiplicity="1" />
+          <End Role="Enrollment" Type="Self.Enrollment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Section">
+              <PropertyRef Name="SectionID" />
+            </Principal>
+            <Dependent Role="Enrollment">
+              <PropertyRef Name="SectionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Enrollment_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Enrollment" Type="Self.Enrollment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="Enrollment">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Feedback_Feedback">
+          <End Role="Advisor" Type="Self.Advisor" Multiplicity="1" />
+          <End Role="Feedback" Type="Self.Feedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Advisor">
+              <PropertyRef Name="AdvisorID" />
+            </Principal>
+            <Dependent Role="Feedback">
+              <PropertyRef Name="AdvisorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Feedback_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Feedback" Type="Self.Feedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="Feedback">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Instructor_Room">
+          <End Role="Room" Type="Self.Room" Multiplicity="1" />
+          <End Role="Instructor" Type="Self.Instructor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Room">
+              <PropertyRef Name="RoomID" />
+            </Principal>
+            <Dependent Role="Instructor">
+              <PropertyRef Name="RoomID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Job_Advisor">
+          <End Role="Advisor" Type="Self.Advisor" Multiplicity="1" />
+          <End Role="Job" Type="Self.Job" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Advisor">
+              <PropertyRef Name="AdvisorID" />
+            </Principal>
+            <Dependent Role="Job">
+              <PropertyRef Name="AdvisorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Job_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="Job" Type="Self.Job" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="Job">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Job_Recruiter">
+          <End Role="Recruiter" Type="Self.Recruiter" Multiplicity="1" />
+          <End Role="Job" Type="Self.Job" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recruiter">
+              <PropertyRef Name="RecruiterID" />
+            </Principal>
+            <Dependent Role="Job">
+              <PropertyRef Name="RecruiterID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Program_College">
+          <End Role="College" Type="Self.College" Multiplicity="1" />
+          <End Role="Program" Type="Self.Program" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="College">
+              <PropertyRef Name="CollegeID" />
+            </Principal>
+            <Dependent Role="Program">
+              <PropertyRef Name="CollegeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Room_Building">
+          <End Role="Building" Type="Self.Building" Multiplicity="0..1" />
+          <End Role="Room" Type="Self.Room" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Building">
+              <PropertyRef Name="BuildingID" />
+            </Principal>
+            <Dependent Role="Room">
+              <PropertyRef Name="BuidingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Section_Course">
+          <End Role="Course" Type="Self.Course" Multiplicity="1" />
+          <End Role="Section" Type="Self.Section" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="CourseID" />
+            </Principal>
+            <Dependent Role="Section">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Section_Instructor">
+          <End Role="Instructor" Type="Self.Instructor" Multiplicity="1" />
+          <End Role="Section" Type="Self.Section" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Instructor">
+              <PropertyRef Name="InstructorID" />
+            </Principal>
+            <Dependent Role="Section">
+              <PropertyRef Name="InstructorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Section_Room">
+          <End Role="Room" Type="Self.Room" Multiplicity="1" />
+          <End Role="Section" Type="Self.Section" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Room">
+              <PropertyRef Name="RoomID" />
+            </Principal>
+            <Dependent Role="Section">
+              <PropertyRef Name="RoomID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Section_Term">
+          <End Role="Term" Type="Self.Term" Multiplicity="1" />
+          <End Role="Section" Type="Self.Section" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Term">
+              <PropertyRef Name="TermID" />
+            </Principal>
+            <Dependent Role="Section">
+              <PropertyRef Name="TermID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Program">
+          <End Role="Program" Type="Self.Program" Multiplicity="0..1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Program">
+              <PropertyRef Name="ProgramID" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="MajorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Program1">
+          <End Role="Program" Type="Self.Program" Multiplicity="0..1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Program">
+              <PropertyRef Name="ProgramID" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="MinorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentAddress_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="StudentAddress" Type="Self.StudentAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="StudentAddress">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentAvailability_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="StudentAvailability" Type="Self.StudentAvailability" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="StudentAvailability">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="IS417ModelStoreContainer">
+          <EntitySet Name="Advisor" EntityType="Self.Advisor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Appointment" EntityType="Self.Appointment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Building" EntityType="Self.Building" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CareerFair" EntityType="Self.CareerFair" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CareerPlan" EntityType="Self.CareerPlan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="College" EntityType="Self.College" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Enrollment" EntityType="Self.Enrollment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Feedback" EntityType="Self.Feedback" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Instructor" EntityType="Self.Instructor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Job" EntityType="Self.Job" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Program" EntityType="Self.Program" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Recruiter" EntityType="Self.Recruiter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Room" EntityType="Self.Room" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Section" EntityType="Self.Section" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentAddress" EntityType="Self.StudentAddress" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentAvailability" EntityType="Self.StudentAvailability" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Term" EntityType="Self.Term" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Appointment_Advisor" Association="Self.FK_Appointment_Advisor">
+            <End Role="Advisor" EntitySet="Advisor" />
+            <End Role="Appointment" EntitySet="Appointment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Appointment_Student" Association="Self.FK_Appointment_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Appointment" EntitySet="Appointment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CareerFair_Advisor" Association="Self.FK_CareerFair_Advisor">
+            <End Role="Advisor" EntitySet="Advisor" />
+            <End Role="CareerFair" EntitySet="CareerFair" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CareerFair_Recruiter" Association="Self.FK_CareerFair_Recruiter">
+            <End Role="Recruiter" EntitySet="Recruiter" />
+            <End Role="CareerFair" EntitySet="CareerFair" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CareerPlan_Advisor" Association="Self.FK_CareerPlan_Advisor">
+            <End Role="Advisor" EntitySet="Advisor" />
+            <End Role="CareerPlan" EntitySet="CareerPlan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CareerPlan_Student" Association="Self.FK_CareerPlan_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="CareerPlan" EntitySet="CareerPlan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Course_Program" Association="Self.FK_Course_Program">
+            <End Role="Program" EntitySet="Program" />
+            <End Role="Course" EntitySet="Course" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Enrollment_Section" Association="Self.FK_Enrollment_Section">
+            <End Role="Section" EntitySet="Section" />
+            <End Role="Enrollment" EntitySet="Enrollment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Enrollment_Student" Association="Self.FK_Enrollment_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Enrollment" EntitySet="Enrollment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Feedback_Feedback" Association="Self.FK_Feedback_Feedback">
+            <End Role="Advisor" EntitySet="Advisor" />
+            <End Role="Feedback" EntitySet="Feedback" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Feedback_Student" Association="Self.FK_Feedback_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Feedback" EntitySet="Feedback" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Instructor_Room" Association="Self.FK_Instructor_Room">
+            <End Role="Room" EntitySet="Room" />
+            <End Role="Instructor" EntitySet="Instructor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Job_Advisor" Association="Self.FK_Job_Advisor">
+            <End Role="Advisor" EntitySet="Advisor" />
+            <End Role="Job" EntitySet="Job" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Job_Company" Association="Self.FK_Job_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Job" EntitySet="Job" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Job_Recruiter" Association="Self.FK_Job_Recruiter">
+            <End Role="Recruiter" EntitySet="Recruiter" />
+            <End Role="Job" EntitySet="Job" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Program_College" Association="Self.FK_Program_College">
+            <End Role="College" EntitySet="College" />
+            <End Role="Program" EntitySet="Program" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Room_Building" Association="Self.FK_Room_Building">
+            <End Role="Building" EntitySet="Building" />
+            <End Role="Room" EntitySet="Room" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Section_Course" Association="Self.FK_Section_Course">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="Section" EntitySet="Section" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Section_Instructor" Association="Self.FK_Section_Instructor">
+            <End Role="Instructor" EntitySet="Instructor" />
+            <End Role="Section" EntitySet="Section" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Section_Room" Association="Self.FK_Section_Room">
+            <End Role="Room" EntitySet="Room" />
+            <End Role="Section" EntitySet="Section" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Section_Term" Association="Self.FK_Section_Term">
+            <End Role="Term" EntitySet="Term" />
+            <End Role="Section" EntitySet="Section" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Program" Association="Self.FK_Student_Program">
+            <End Role="Program" EntitySet="Program" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Program1" Association="Self.FK_Student_Program1">
+            <End Role="Program" EntitySet="Program" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentAddress_Student" Association="Self.FK_StudentAddress_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="StudentAddress" EntitySet="StudentAddress" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentAvailability_Student" Association="Self.FK_StudentAvailability_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="StudentAvailability" EntitySet="StudentAvailability" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IS417Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Advisor">
+          <Key>
+            <PropertyRef Name="AdvisorID" />
+          </Key>
+          <Property Name="AdvisorID" Type="Int64" Nullable="false" />
+          <Property Name="AdvisorFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AdvisorLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AdvisorTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AdvisorLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AdvisorEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AdvisorAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AdvisorCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AdvisorState" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="AdvisorZip" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="AdvisorOfficePhone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="AdvisorMobilePhone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="AdvisorLevel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Appointments" Relationship="Self.FK_Appointment_Advisor" FromRole="Advisor" ToRole="Appointment" />
+          <NavigationProperty Name="CareerFairs" Relationship="Self.FK_CareerFair_Advisor" FromRole="Advisor" ToRole="CareerFair" />
+          <NavigationProperty Name="CareerPlans" Relationship="Self.FK_CareerPlan_Advisor" FromRole="Advisor" ToRole="CareerPlan" />
+          <NavigationProperty Name="Feedbacks" Relationship="Self.FK_Feedback_Feedback" FromRole="Advisor" ToRole="Feedback" />
+          <NavigationProperty Name="Jobs" Relationship="Self.FK_Job_Advisor" FromRole="Advisor" ToRole="Job" />
+        </EntityType>
+        <EntityType Name="Appointment">
+          <Key>
+            <PropertyRef Name="AppointmentID" />
+          </Key>
+          <Property Name="AppointmentID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentID" Type="Int64" Nullable="false" />
+          <Property Name="AdvisorID" Type="Int64" Nullable="false" />
+          <Property Name="ApointmentDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ApointmentTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="AppointmentType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AppointmentLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Advisor" Relationship="Self.FK_Appointment_Advisor" FromRole="Appointment" ToRole="Advisor" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Appointment_Student" FromRole="Appointment" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Building">
+          <Key>
+            <PropertyRef Name="BuildingID" />
+          </Key>
+          <Property Name="BuildingID" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Rooms" Relationship="Self.FK_Room_Building" FromRole="Building" ToRole="Room" />
+        </EntityType>
+        <EntityType Name="CareerFair">
+          <Key>
+            <PropertyRef Name="CareerFairID" />
+          </Key>
+          <Property Name="CareerFairID" Type="Int64" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LocationName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StreetAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="2" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Zip" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Sponsor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AdvisorID" Type="Int64" Nullable="false" />
+          <Property Name="RecruiterID" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Advisor" Relationship="Self.FK_CareerFair_Advisor" FromRole="CareerFair" ToRole="Advisor" />
+          <NavigationProperty Name="Recruiter" Relationship="Self.FK_CareerFair_Recruiter" FromRole="CareerFair" ToRole="Recruiter" />
+        </EntityType>
+        <EntityType Name="CareerPlan">
+          <Key>
+            <PropertyRef Name="CareerPlanID" />
+          </Key>
+          <Property Name="CareerPlanID" Type="Int64" Nullable="false" />
+          <Property Name="StudentID" Type="Int64" Nullable="false" />
+          <Property Name="AdvisorID" Type="Int64" Nullable="false" />
+          <Property Name="RecruiterID" Type="Int64" Nullable="false" />
+          <Property Name="Resume" Type="Binary" MaxLength="8000" FixedLength="true" />
+          <Property Name="AdvisorCareerForecast" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="RecruiterCareerForecast" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="StudentCareerGoals" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="JobLocationState" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Advisor" Relationship="Self.FK_CareerPlan_Advisor" FromRole="CareerPlan" ToRole="Advisor" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_CareerPlan_Student" FromRole="CareerPlan" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="College">
+          <Key>
+            <PropertyRef Name="CollegeID" />
+          </Key>
+          <Property Name="CollegeID" Type="Int64" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Programs" Relationship="Self.FK_Program_College" FromRole="College" ToRole="Program" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="CompanyID" />
+          </Key>
+          <Property Name="CompanyID" Type="Int64" Nullable="false" />
+          <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Jobs" Relationship="Self.FK_Job_Company" FromRole="Company" ToRole="Job" />
+        </EntityType>
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="CourseID" />
+          </Key>
+          <Property Name="CourseID" Type="Int64" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Credits" Type="Decimal" Precision="3" Scale="2" />
+          <Property Name="ProgramID" Type="Int64" />
+          <NavigationProperty Name="Program" Relationship="Self.FK_Course_Program" FromRole="Course" ToRole="Program" />
+          <NavigationProperty Name="Sections" Relationship="Self.FK_Section_Course" FromRole="Course" ToRole="Section" />
+        </EntityType>
+        <EntityType Name="Enrollment">
+          <Key>
+            <PropertyRef Name="EnrollmentID" />
+          </Key>
+          <Property Name="EnrollmentID" Type="Int64" Nullable="false" />
+          <Property Name="StudentID" Type="Int64" Nullable="false" />
+          <Property Name="SectionID" Type="Int64" Nullable="false" />
+          <Property Name="Grade" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="GradePoint" Type="Decimal" Precision="3" Scale="2" />
+          <Property Name="Credits" Type="Decimal" Precision="3" Scale="2" />
+          <NavigationProperty Name="Section" Relationship="Self.FK_Enrollment_Section" FromRole="Enrollment" ToRole="Section" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Enrollment_Student" FromRole="Enrollment" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Feedback">
+          <Key>
+            <PropertyRef Name="FeedbackID" />
+          </Key>
+          <Property Name="FeedbackID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FeedbackType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StudentID" Type="Int64" Nullable="false" />
+          <Property Name="AdvisorID" Type="Int64" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Advisor" Relationship="Self.FK_Feedback_Feedback" FromRole="Feedback" ToRole="Advisor" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Feedback_Student" FromRole="Feedback" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Instructor">
+          <Key>
+            <PropertyRef Name="InstructorID" />
+          </Key>
+          <Property Name="InstructorID" Type="Int64" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MI" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RoomID" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Room" Relationship="Self.FK_Instructor_Room" FromRole="Instructor" ToRole="Room" />
+          <NavigationProperty Name="Sections" Relationship="Self.FK_Section_Instructor" FromRole="Instructor" ToRole="Section" />
+        </EntityType>
+        <EntityType Name="Job">
+          <Key>
+            <PropertyRef Name="JobId" />
+          </Key>
+          <Property Name="JobId" Type="Int64" Nullable="false" />
+          <Property Name="JobLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="JobTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="JobDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="JobPostingDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="JobDegreeRequirements" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SocialMediaProfile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AdvisorID" Type="Int64" Nullable="false" />
+          <Property Name="RecruiterID" Type="Int64" Nullable="false" />
+          <Property Name="CompanyID" Type="Int64" Nullable="false" />
+          <Property Name="PostingDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DegreeField" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Advisor" Relationship="Self.FK_Job_Advisor" FromRole="Job" ToRole="Advisor" />
+          <NavigationProperty Name="Company" Relationship="Self.FK_Job_Company" FromRole="Job" ToRole="Company" />
+          <NavigationProperty Name="Recruiter" Relationship="Self.FK_Job_Recruiter" FromRole="Job" ToRole="Recruiter" />
+        </EntityType>
+        <EntityType Name="Program">
+          <Key>
+            <PropertyRef Name="ProgramID" />
+          </Key>
+          <Property Name="ProgramID" Type="Int64" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CollegeID" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="College" Relationship="Self.FK_Program_College" FromRole="Program" ToRole="College" />
+          <NavigationProperty Name="Courses" Relationship="Self.FK_Course_Program" FromRole="Program" ToRole="Course" />
+          <NavigationProperty Name="Students" Relationship="Self.FK_Student_Program" FromRole="Program" ToRole="Student" />
+          <NavigationProperty Name="Students1" Relationship="Self.FK_Student_Program1" FromRole="Program" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Recruiter">
+          <Key>
+            <PropertyRef Name="RecruiterID" />
+          </Key>
+          <Property Name="RecruiterID" Type="Int64" Nullable="false" />
+          <Property Name="Firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="CareerFairs" Relationship="Self.FK_CareerFair_Recruiter" FromRole="Recruiter" ToRole="CareerFair" />
+          <NavigationProperty Name="Jobs" Relationship="Self.FK_Job_Recruiter" FromRole="Recruiter" ToRole="Job" />
+        </EntityType>
+        <EntityType Name="Room">
+          <Key>
+            <PropertyRef Name="RoomID" />
+          </Key>
+          <Property Name="RoomID" Type="Int64" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Capacity" Type="Int16" />
+          <Property Name="Lab" Type="Boolean" />
+          <Property Name="LabType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Notes" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="BuidingID" Type="Int32" />
+          <NavigationProperty Name="Building" Relationship="Self.FK_Room_Building" FromRole="Room" ToRole="Building" />
+          <NavigationProperty Name="Instructors" Relationship="Self.FK_Instructor_Room" FromRole="Room" ToRole="Instructor" />
+          <NavigationProperty Name="Sections" Relationship="Self.FK_Section_Room" FromRole="Room" ToRole="Section" />
+        </EntityType>
+        <EntityType Name="Section">
+          <Key>
+            <PropertyRef Name="SectionID" />
+          </Key>
+          <Property Name="SectionID" Type="Int64" Nullable="false" />
+          <Property Name="Day" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StartTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="EndTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="TermID" Type="Int32" Nullable="false" />
+          <Property Name="CourseID" Type="Int64" Nullable="false" />
+          <Property Name="RoomID" Type="Int64" Nullable="false" />
+          <Property Name="InstructorID" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Course" Relationship="Self.FK_Section_Course" FromRole="Section" ToRole="Course" />
+          <NavigationProperty Name="Enrollments" Relationship="Self.FK_Enrollment_Section" FromRole="Section" ToRole="Enrollment" />
+          <NavigationProperty Name="Instructor" Relationship="Self.FK_Section_Instructor" FromRole="Section" ToRole="Instructor" />
+          <NavigationProperty Name="Room" Relationship="Self.FK_Section_Room" FromRole="Section" ToRole="Room" />
+          <NavigationProperty Name="Term" Relationship="Self.FK_Section_Term" FromRole="Section" ToRole="Term" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="StudentID" />
+          </Key>
+          <Property Name="StudentID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MI" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Suffix" Type="String" MaxLength="4" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="DOB" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MajorID" Type="Int64" />
+          <Property Name="MinorID" Type="Int64" />
+          <Property Name="Phone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EnrollmentStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Appointments" Relationship="Self.FK_Appointment_Student" FromRole="Student" ToRole="Appointment" />
+          <NavigationProperty Name="CareerPlans" Relationship="Self.FK_CareerPlan_Student" FromRole="Student" ToRole="CareerPlan" />
+          <NavigationProperty Name="Enrollments" Relationship="Self.FK_Enrollment_Student" FromRole="Student" ToRole="Enrollment" />
+          <NavigationProperty Name="Feedbacks" Relationship="Self.FK_Feedback_Student" FromRole="Student" ToRole="Feedback" />
+          <NavigationProperty Name="Program" Relationship="Self.FK_Student_Program" FromRole="Student" ToRole="Program" />
+          <NavigationProperty Name="Program1" Relationship="Self.FK_Student_Program1" FromRole="Student" ToRole="Program" />
+          <NavigationProperty Name="StudentAddresses" Relationship="Self.FK_StudentAddress_Student" FromRole="Student" ToRole="StudentAddress" />
+          <NavigationProperty Name="StudentAvailabilities" Relationship="Self.FK_StudentAvailability_Student" FromRole="Student" ToRole="StudentAvailability" />
+        </EntityType>
+        <EntityType Name="StudentAddress">
+          <Key>
+            <PropertyRef Name="StudentAddressID" />
+          </Key>
+          <Property Name="StudentAddressID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentID" Type="Int64" Nullable="false" />
+          <Property Name="StreetAddress1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StreetAddress2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="2" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Zip" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Primary" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_StudentAddress_Student" FromRole="StudentAddress" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="StudentAvailability">
+          <Key>
+            <PropertyRef Name="AvailabilityID" />
+          </Key>
+          <Property Name="AvailabilityID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentID" Type="Int64" Nullable="false" />
+          <Property Name="BeginTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="EndTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="Sun" Type="Boolean" Nullable="false" />
+          <Property Name="Mon" Type="Boolean" Nullable="false" />
+          <Property Name="Tue" Type="Boolean" Nullable="false" />
+          <Property Name="Wed" Type="Boolean" Nullable="false" />
+          <Property Name="Thu" Type="Boolean" Nullable="false" />
+          <Property Name="Fri" Type="Boolean" Nullable="false" />
+          <Property Name="Sat" Type="Boolean" Nullable="false" />
+          <Property Name="BeginDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_StudentAvailability_Student" FromRole="StudentAvailability" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Term">
+          <Key>
+            <PropertyRef Name="TermID" />
+          </Key>
+          <Property Name="TermID" Type="Int32" Nullable="false" />
+          <Property Name="Year" Type="String" MaxLength="4" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Sections" Relationship="Self.FK_Section_Term" FromRole="Term" ToRole="Section" />
+        </EntityType>
+        <Association Name="FK_Appointment_Advisor">
+          <End Role="Advisor" Type="Self.Advisor" Multiplicity="1" />
+          <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Advisor">
+              <PropertyRef Name="AdvisorID" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="AdvisorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CareerFair_Advisor">
+          <End Role="Advisor" Type="Self.Advisor" Multiplicity="1" />
+          <End Role="CareerFair" Type="Self.CareerFair" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Advisor">
+              <PropertyRef Name="AdvisorID" />
+            </Principal>
+            <Dependent Role="CareerFair">
+              <PropertyRef Name="AdvisorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CareerPlan_Advisor">
+          <End Role="Advisor" Type="Self.Advisor" Multiplicity="1" />
+          <End Role="CareerPlan" Type="Self.CareerPlan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Advisor">
+              <PropertyRef Name="AdvisorID" />
+            </Principal>
+            <Dependent Role="CareerPlan">
+              <PropertyRef Name="AdvisorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Feedback_Feedback">
+          <End Role="Advisor" Type="Self.Advisor" Multiplicity="1" />
+          <End Role="Feedback" Type="Self.Feedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Advisor">
+              <PropertyRef Name="AdvisorID" />
+            </Principal>
+            <Dependent Role="Feedback">
+              <PropertyRef Name="AdvisorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Job_Advisor">
+          <End Role="Advisor" Type="Self.Advisor" Multiplicity="1" />
+          <End Role="Job" Type="Self.Job" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Advisor">
+              <PropertyRef Name="AdvisorID" />
+            </Principal>
+            <Dependent Role="Job">
+              <PropertyRef Name="AdvisorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Appointment_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Room_Building">
+          <End Role="Building" Type="Self.Building" Multiplicity="0..1" />
+          <End Role="Room" Type="Self.Room" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Building">
+              <PropertyRef Name="BuildingID" />
+            </Principal>
+            <Dependent Role="Room">
+              <PropertyRef Name="BuidingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CareerFair_Recruiter">
+          <End Role="Recruiter" Type="Self.Recruiter" Multiplicity="1" />
+          <End Role="CareerFair" Type="Self.CareerFair" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recruiter">
+              <PropertyRef Name="RecruiterID" />
+            </Principal>
+            <Dependent Role="CareerFair">
+              <PropertyRef Name="RecruiterID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CareerPlan_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="CareerPlan" Type="Self.CareerPlan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="CareerPlan">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Program_College">
+          <End Role="College" Type="Self.College" Multiplicity="1" />
+          <End Role="Program" Type="Self.Program" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="College">
+              <PropertyRef Name="CollegeID" />
+            </Principal>
+            <Dependent Role="Program">
+              <PropertyRef Name="CollegeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Job_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="Job" Type="Self.Job" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="Job">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Course_Program">
+          <End Role="Program" Type="Self.Program" Multiplicity="0..1" />
+          <End Role="Course" Type="Self.Course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Program">
+              <PropertyRef Name="ProgramID" />
+            </Principal>
+            <Dependent Role="Course">
+              <PropertyRef Name="ProgramID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Section_Course">
+          <End Role="Course" Type="Self.Course" Multiplicity="1" />
+          <End Role="Section" Type="Self.Section" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="CourseID" />
+            </Principal>
+            <Dependent Role="Section">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Enrollment_Section">
+          <End Role="Section" Type="Self.Section" Multiplicity="1" />
+          <End Role="Enrollment" Type="Self.Enrollment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Section">
+              <PropertyRef Name="SectionID" />
+            </Principal>
+            <Dependent Role="Enrollment">
+              <PropertyRef Name="SectionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Enrollment_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Enrollment" Type="Self.Enrollment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="Enrollment">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Feedback_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Feedback" Type="Self.Feedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="Feedback">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Instructor_Room">
+          <End Role="Room" Type="Self.Room" Multiplicity="1" />
+          <End Role="Instructor" Type="Self.Instructor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Room">
+              <PropertyRef Name="RoomID" />
+            </Principal>
+            <Dependent Role="Instructor">
+              <PropertyRef Name="RoomID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Section_Instructor">
+          <End Role="Instructor" Type="Self.Instructor" Multiplicity="1" />
+          <End Role="Section" Type="Self.Section" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Instructor">
+              <PropertyRef Name="InstructorID" />
+            </Principal>
+            <Dependent Role="Section">
+              <PropertyRef Name="InstructorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Job_Recruiter">
+          <End Role="Recruiter" Type="Self.Recruiter" Multiplicity="1" />
+          <End Role="Job" Type="Self.Job" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recruiter">
+              <PropertyRef Name="RecruiterID" />
+            </Principal>
+            <Dependent Role="Job">
+              <PropertyRef Name="RecruiterID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Program">
+          <End Role="Program" Type="Self.Program" Multiplicity="0..1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Program">
+              <PropertyRef Name="ProgramID" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="MajorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Program1">
+          <End Role="Program" Type="Self.Program" Multiplicity="0..1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Program">
+              <PropertyRef Name="ProgramID" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="MinorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Section_Room">
+          <End Role="Room" Type="Self.Room" Multiplicity="1" />
+          <End Role="Section" Type="Self.Section" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Room">
+              <PropertyRef Name="RoomID" />
+            </Principal>
+            <Dependent Role="Section">
+              <PropertyRef Name="RoomID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Section_Term">
+          <End Role="Term" Type="Self.Term" Multiplicity="1" />
+          <End Role="Section" Type="Self.Section" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Term">
+              <PropertyRef Name="TermID" />
+            </Principal>
+            <Dependent Role="Section">
+              <PropertyRef Name="TermID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentAddress_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="StudentAddress" Type="Self.StudentAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="StudentAddress">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentAvailability_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="StudentAvailability" Type="Self.StudentAvailability" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="StudentAvailability">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="IS417Entities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Advisors" EntityType="Self.Advisor" />
+          <EntitySet Name="Appointments" EntityType="Self.Appointment" />
+          <EntitySet Name="Buildings" EntityType="Self.Building" />
+          <EntitySet Name="CareerFairs" EntityType="Self.CareerFair" />
+          <EntitySet Name="CareerPlans" EntityType="Self.CareerPlan" />
+          <EntitySet Name="Colleges" EntityType="Self.College" />
+          <EntitySet Name="Companies" EntityType="Self.Company" />
+          <EntitySet Name="Courses" EntityType="Self.Course" />
+          <EntitySet Name="Enrollments" EntityType="Self.Enrollment" />
+          <EntitySet Name="Feedbacks" EntityType="Self.Feedback" />
+          <EntitySet Name="Instructors" EntityType="Self.Instructor" />
+          <EntitySet Name="Jobs" EntityType="Self.Job" />
+          <EntitySet Name="Programs" EntityType="Self.Program" />
+          <EntitySet Name="Recruiters" EntityType="Self.Recruiter" />
+          <EntitySet Name="Rooms" EntityType="Self.Room" />
+          <EntitySet Name="Sections" EntityType="Self.Section" />
+          <EntitySet Name="Students" EntityType="Self.Student" />
+          <EntitySet Name="StudentAddresses" EntityType="Self.StudentAddress" />
+          <EntitySet Name="StudentAvailabilities" EntityType="Self.StudentAvailability" />
+          <EntitySet Name="Terms" EntityType="Self.Term" />
+          <AssociationSet Name="FK_Appointment_Advisor" Association="Self.FK_Appointment_Advisor">
+            <End Role="Advisor" EntitySet="Advisors" />
+            <End Role="Appointment" EntitySet="Appointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CareerFair_Advisor" Association="Self.FK_CareerFair_Advisor">
+            <End Role="Advisor" EntitySet="Advisors" />
+            <End Role="CareerFair" EntitySet="CareerFairs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CareerPlan_Advisor" Association="Self.FK_CareerPlan_Advisor">
+            <End Role="Advisor" EntitySet="Advisors" />
+            <End Role="CareerPlan" EntitySet="CareerPlans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Feedback_Feedback" Association="Self.FK_Feedback_Feedback">
+            <End Role="Advisor" EntitySet="Advisors" />
+            <End Role="Feedback" EntitySet="Feedbacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Job_Advisor" Association="Self.FK_Job_Advisor">
+            <End Role="Advisor" EntitySet="Advisors" />
+            <End Role="Job" EntitySet="Jobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Appointment_Student" Association="Self.FK_Appointment_Student">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="Appointment" EntitySet="Appointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Room_Building" Association="Self.FK_Room_Building">
+            <End Role="Building" EntitySet="Buildings" />
+            <End Role="Room" EntitySet="Rooms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CareerFair_Recruiter" Association="Self.FK_CareerFair_Recruiter">
+            <End Role="Recruiter" EntitySet="Recruiters" />
+            <End Role="CareerFair" EntitySet="CareerFairs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CareerPlan_Student" Association="Self.FK_CareerPlan_Student">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="CareerPlan" EntitySet="CareerPlans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Program_College" Association="Self.FK_Program_College">
+            <End Role="College" EntitySet="Colleges" />
+            <End Role="Program" EntitySet="Programs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Job_Company" Association="Self.FK_Job_Company">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Job" EntitySet="Jobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Course_Program" Association="Self.FK_Course_Program">
+            <End Role="Program" EntitySet="Programs" />
+            <End Role="Course" EntitySet="Courses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Section_Course" Association="Self.FK_Section_Course">
+            <End Role="Course" EntitySet="Courses" />
+            <End Role="Section" EntitySet="Sections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Enrollment_Section" Association="Self.FK_Enrollment_Section">
+            <End Role="Section" EntitySet="Sections" />
+            <End Role="Enrollment" EntitySet="Enrollments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Enrollment_Student" Association="Self.FK_Enrollment_Student">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="Enrollment" EntitySet="Enrollments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Feedback_Student" Association="Self.FK_Feedback_Student">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="Feedback" EntitySet="Feedbacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Instructor_Room" Association="Self.FK_Instructor_Room">
+            <End Role="Room" EntitySet="Rooms" />
+            <End Role="Instructor" EntitySet="Instructors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Section_Instructor" Association="Self.FK_Section_Instructor">
+            <End Role="Instructor" EntitySet="Instructors" />
+            <End Role="Section" EntitySet="Sections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Job_Recruiter" Association="Self.FK_Job_Recruiter">
+            <End Role="Recruiter" EntitySet="Recruiters" />
+            <End Role="Job" EntitySet="Jobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Program" Association="Self.FK_Student_Program">
+            <End Role="Program" EntitySet="Programs" />
+            <End Role="Student" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Program1" Association="Self.FK_Student_Program1">
+            <End Role="Program" EntitySet="Programs" />
+            <End Role="Student" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Section_Room" Association="Self.FK_Section_Room">
+            <End Role="Room" EntitySet="Rooms" />
+            <End Role="Section" EntitySet="Sections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Section_Term" Association="Self.FK_Section_Term">
+            <End Role="Term" EntitySet="Terms" />
+            <End Role="Section" EntitySet="Sections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentAddress_Student" Association="Self.FK_StudentAddress_Student">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="StudentAddress" EntitySet="StudentAddresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentAvailability_Student" Association="Self.FK_StudentAvailability_Student">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="StudentAvailability" EntitySet="StudentAvailabilities" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="IS417ModelStoreContainer" CdmEntityContainer="IS417Entities1">
+          <EntitySetMapping Name="Advisors">
+            <EntityTypeMapping TypeName="IS417Model.Advisor">
+              <MappingFragment StoreEntitySet="Advisor">
+                <ScalarProperty Name="AdvisorID" ColumnName="AdvisorID" />
+                <ScalarProperty Name="AdvisorFirstName" ColumnName="AdvisorFirstName" />
+                <ScalarProperty Name="AdvisorLastName" ColumnName="AdvisorLastName" />
+                <ScalarProperty Name="AdvisorTitle" ColumnName="AdvisorTitle" />
+                <ScalarProperty Name="AdvisorLocation" ColumnName="AdvisorLocation" />
+                <ScalarProperty Name="AdvisorEmail" ColumnName="AdvisorEmail" />
+                <ScalarProperty Name="AdvisorAddress" ColumnName="AdvisorAddress" />
+                <ScalarProperty Name="AdvisorCity" ColumnName="AdvisorCity" />
+                <ScalarProperty Name="AdvisorState" ColumnName="AdvisorState" />
+                <ScalarProperty Name="AdvisorZip" ColumnName="AdvisorZip" />
+                <ScalarProperty Name="AdvisorOfficePhone" ColumnName="AdvisorOfficePhone" />
+                <ScalarProperty Name="AdvisorMobilePhone" ColumnName="AdvisorMobilePhone" />
+                <ScalarProperty Name="AdvisorLevel" ColumnName="AdvisorLevel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Appointments">
+            <EntityTypeMapping TypeName="IS417Model.Appointment">
+              <MappingFragment StoreEntitySet="Appointment">
+                <ScalarProperty Name="AppointmentID" ColumnName="AppointmentID" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="AdvisorID" ColumnName="AdvisorID" />
+                <ScalarProperty Name="ApointmentDate" ColumnName="ApointmentDate" />
+                <ScalarProperty Name="ApointmentTime" ColumnName="ApointmentTime" />
+                <ScalarProperty Name="AppointmentType" ColumnName="AppointmentType" />
+                <ScalarProperty Name="AppointmentLocation" ColumnName="AppointmentLocation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Buildings">
+            <EntityTypeMapping TypeName="IS417Model.Building">
+              <MappingFragment StoreEntitySet="Building">
+                <ScalarProperty Name="BuildingID" ColumnName="BuildingID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CareerFairs">
+            <EntityTypeMapping TypeName="IS417Model.CareerFair">
+              <MappingFragment StoreEntitySet="CareerFair">
+                <ScalarProperty Name="CareerFairID" ColumnName="CareerFairID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="LocationName" ColumnName="LocationName" />
+                <ScalarProperty Name="StreetAddress" ColumnName="StreetAddress" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="Sponsor" ColumnName="Sponsor" />
+                <ScalarProperty Name="AdvisorID" ColumnName="AdvisorID" />
+                <ScalarProperty Name="RecruiterID" ColumnName="RecruiterID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CareerPlans">
+            <EntityTypeMapping TypeName="IS417Model.CareerPlan">
+              <MappingFragment StoreEntitySet="CareerPlan">
+                <ScalarProperty Name="CareerPlanID" ColumnName="CareerPlanID" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="AdvisorID" ColumnName="AdvisorID" />
+                <ScalarProperty Name="RecruiterID" ColumnName="RecruiterID" />
+                <ScalarProperty Name="Resume" ColumnName="Resume" />
+                <ScalarProperty Name="AdvisorCareerForecast" ColumnName="AdvisorCareerForecast" />
+                <ScalarProperty Name="RecruiterCareerForecast" ColumnName="RecruiterCareerForecast" />
+                <ScalarProperty Name="StudentCareerGoals" ColumnName="StudentCareerGoals" />
+                <ScalarProperty Name="JobLocationState" ColumnName="JobLocationState" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Colleges">
+            <EntityTypeMapping TypeName="IS417Model.College">
+              <MappingFragment StoreEntitySet="College">
+                <ScalarProperty Name="CollegeID" ColumnName="CollegeID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Companies">
+            <EntityTypeMapping TypeName="IS417Model.Company">
+              <MappingFragment StoreEntitySet="Company">
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Courses">
+            <EntityTypeMapping TypeName="IS417Model.Course">
+              <MappingFragment StoreEntitySet="Course">
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Credits" ColumnName="Credits" />
+                <ScalarProperty Name="ProgramID" ColumnName="ProgramID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Enrollments">
+            <EntityTypeMapping TypeName="IS417Model.Enrollment">
+              <MappingFragment StoreEntitySet="Enrollment">
+                <ScalarProperty Name="EnrollmentID" ColumnName="EnrollmentID" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="SectionID" ColumnName="SectionID" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+                <ScalarProperty Name="GradePoint" ColumnName="GradePoint" />
+                <ScalarProperty Name="Credits" ColumnName="Credits" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Feedbacks">
+            <EntityTypeMapping TypeName="IS417Model.Feedback">
+              <MappingFragment StoreEntitySet="Feedback">
+                <ScalarProperty Name="FeedbackID" ColumnName="FeedbackID" />
+                <ScalarProperty Name="FeedbackType" ColumnName="FeedbackType" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="AdvisorID" ColumnName="AdvisorID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Instructors">
+            <EntityTypeMapping TypeName="IS417Model.Instructor">
+              <MappingFragment StoreEntitySet="Instructor">
+                <ScalarProperty Name="InstructorID" ColumnName="InstructorID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MI" ColumnName="MI" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Jobs">
+            <EntityTypeMapping TypeName="IS417Model.Job">
+              <MappingFragment StoreEntitySet="Job">
+                <ScalarProperty Name="JobId" ColumnName="JobId" />
+                <ScalarProperty Name="JobLocation" ColumnName="JobLocation" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+                <ScalarProperty Name="JobDescription" ColumnName="JobDescription" />
+                <ScalarProperty Name="JobPostingDate" ColumnName="JobPostingDate" />
+                <ScalarProperty Name="JobDegreeRequirements" ColumnName="JobDegreeRequirements" />
+                <ScalarProperty Name="SocialMediaProfile" ColumnName="SocialMediaProfile" />
+                <ScalarProperty Name="AdvisorID" ColumnName="AdvisorID" />
+                <ScalarProperty Name="RecruiterID" ColumnName="RecruiterID" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="PostingDate" ColumnName="PostingDate" />
+                <ScalarProperty Name="DegreeField" ColumnName="DegreeField" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Programs">
+            <EntityTypeMapping TypeName="IS417Model.Program">
+              <MappingFragment StoreEntitySet="Program">
+                <ScalarProperty Name="ProgramID" ColumnName="ProgramID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CollegeID" ColumnName="CollegeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Recruiters">
+            <EntityTypeMapping TypeName="IS417Model.Recruiter">
+              <MappingFragment StoreEntitySet="Recruiter">
+                <ScalarProperty Name="RecruiterID" ColumnName="RecruiterID" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rooms">
+            <EntityTypeMapping TypeName="IS417Model.Room">
+              <MappingFragment StoreEntitySet="Room">
+                <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+                <ScalarProperty Name="Lab" ColumnName="Lab" />
+                <ScalarProperty Name="LabType" ColumnName="LabType" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="BuidingID" ColumnName="BuidingID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sections">
+            <EntityTypeMapping TypeName="IS417Model.Section">
+              <MappingFragment StoreEntitySet="Section">
+                <ScalarProperty Name="SectionID" ColumnName="SectionID" />
+                <ScalarProperty Name="Day" ColumnName="Day" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="TermID" ColumnName="TermID" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+                <ScalarProperty Name="InstructorID" ColumnName="InstructorID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="IS417Model.Student">
+              <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MI" ColumnName="MI" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Suffix" ColumnName="Suffix" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="MajorID" ColumnName="MajorID" />
+                <ScalarProperty Name="MinorID" ColumnName="MinorID" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="EnrollmentStatus" ColumnName="EnrollmentStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentAddresses">
+            <EntityTypeMapping TypeName="IS417Model.StudentAddress">
+              <MappingFragment StoreEntitySet="StudentAddress">
+                <ScalarProperty Name="StudentAddressID" ColumnName="StudentAddressID" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="StreetAddress1" ColumnName="StreetAddress1" />
+                <ScalarProperty Name="StreetAddress2" ColumnName="StreetAddress2" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="Primary" ColumnName="Primary" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentAvailabilities">
+            <EntityTypeMapping TypeName="IS417Model.StudentAvailability">
+              <MappingFragment StoreEntitySet="StudentAvailability">
+                <ScalarProperty Name="AvailabilityID" ColumnName="AvailabilityID" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="BeginTime" ColumnName="BeginTime" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="Sun" ColumnName="Sun" />
+                <ScalarProperty Name="Mon" ColumnName="Mon" />
+                <ScalarProperty Name="Tue" ColumnName="Tue" />
+                <ScalarProperty Name="Wed" ColumnName="Wed" />
+                <ScalarProperty Name="Thu" ColumnName="Thu" />
+                <ScalarProperty Name="Fri" ColumnName="Fri" />
+                <ScalarProperty Name="Sat" ColumnName="Sat" />
+                <ScalarProperty Name="BeginDate" ColumnName="BeginDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Terms">
+            <EntityTypeMapping TypeName="IS417Model.Term">
+              <MappingFragment StoreEntitySet="Term">
+                <ScalarProperty Name="TermID" ColumnName="TermID" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

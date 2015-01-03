@@ -1,0 +1,114 @@
+﻿@model CollegeProgram.Models.StudentAvailability
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>StudentAvailability</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BeginTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BeginTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sun)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sun)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Wed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Wed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Thu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Thu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fri)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fri)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BeginDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BeginDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.FirstName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.AvailabilityID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

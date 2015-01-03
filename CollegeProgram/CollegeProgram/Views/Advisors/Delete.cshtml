@@ -1,0 +1,120 @@
+﻿@model CollegeProgram.Models.Advisor
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Advisor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AdvisorFirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdvisorFirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdvisorLastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdvisorLastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdvisorTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdvisorTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdvisorLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdvisorLocation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdvisorEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdvisorEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdvisorAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdvisorAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdvisorCity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdvisorCity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdvisorState)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdvisorState)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdvisorZip)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdvisorZip)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdvisorOfficePhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdvisorOfficePhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdvisorMobilePhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdvisorMobilePhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdvisorLevel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdvisorLevel)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
